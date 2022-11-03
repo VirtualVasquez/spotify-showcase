@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.scss';
+import Branding from './components/Branding/Branding'
+
 
 
 class App extends React.Component{
@@ -13,7 +15,7 @@ class App extends React.Component{
     return(
       <div className="App">
       <header className="App-header">
-        <h1>header</h1>
+        <Branding />
       </header>
     </div>
     )
