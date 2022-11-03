@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.scss';
-import Branding from './components/Branding/Branding'
+import Branding from './components/Branding/Branding';
+import NavMenu from './components/NavMenu/NavMenu';
+import PageDisplay from './components/PageDisplay/PageDisplay';
 
 
 
@@ -14,9 +16,11 @@ class App extends React.Component{
   render(){
     return(
       <div className="App">
-      <header className="App-header">
-        <Branding />
-      </header>
+        <div className="row">
+          <NavMenu />
+          <PageDisplay />
+          <Branding />
+        </div>
     </div>
     )
   }

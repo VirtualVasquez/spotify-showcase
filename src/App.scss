@@ -1,3 +1,18 @@
 .App{
   font-size: 16px;
+  overflow: hidden; 
+  @media(max-width: 576px){
+    height: 100vh;
+  } 
+  .row{
+    @media(min-width: 576px){
+      height: 100vh;
+    }
+    @media(max-width: 576px){
+      height: 100vh;
+      display: flex;
+      flex-direction: column-reverse;
+    } 
+      
+    }
 }

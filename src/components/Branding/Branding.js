@@ -4,7 +4,7 @@ import './Branding.scss';
 
 const Branding = props => {
     return(
-        <section id="branding">
+        <section id="branding" className='col-12'>
             <h1>
                 <Logo />
                 Spotify

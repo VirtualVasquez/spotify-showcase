@@ -1,0 +1,10 @@
+main{
+    background-color: #121212;
+    color: #fff;
+    @media(min-width: 576px){
+        height: 90%;
+    }
+    @media(max-width: 576px){
+        height: 80%;
+    }
+}
