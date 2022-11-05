@@ -7,9 +7,9 @@ import {
 import './App.scss';
 import Branding from './components/Branding/Branding';
 import NavMenu from './components/NavMenu/NavMenu';
-import HomePage from './components/HomePage/HomePage';
-import SearchPage from './components/SearchPage/SearchPage';
-import RandomPage from './components/RandomPage/RandomPage';
+import HomePage from './components/Pages/HomePage/HomePage';
+import SearchPage from './components/Pages/SearchPage/SearchPage';
+import RandomPage from './components/Pages/RandomPage/RandomPage';
 
 
 
