@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
-import './Artists.scss';
+import './Artist.scss';
 
-const Artists = props => {
+const Artist = props => {
     return(
         <div className="row" id="artists-row">
             <div className="col-sm-2">
@@ -27,4 +27,4 @@ const Artists = props => {
     )
 }
 
-export default Artists;
+export default Artist;
