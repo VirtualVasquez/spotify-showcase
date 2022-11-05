@@ -1,0 +1,48 @@
+#search-page{
+    font-weight: 500;
+    .table-row{
+        border: 1px solid transparent;
+        border-radius: 5px;
+        &:hover, &:active{
+            background-color: rgb(42, 42, 42);
+            .cell:not(:last-child){
+                color:#fff;
+            }
+        }
+        &:active{
+            background-color: rgb(90, 90, 90);
+            .cell:not(:last-child){
+                color:#fff;
+            }
+        }
+    }
+    .cell{
+        display: flex;
+        align-items: center;
+    }
+    .album-cell{
+        span{
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    img{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    .title-cell > div{
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        .title-span{
+            color:#fff;
+            font-weight: 600;
+        }
+        .artist-span{
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

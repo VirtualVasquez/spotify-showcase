@@ -25,7 +25,7 @@ class App extends React.Component{
     return(
       <Router>
         <div className="App">
-          <div className="row">
+          <div className="app-row row">
             <NavMenu />
               <main className="col-sm-10 col-xs-12">
                 <Routes>

@@ -8,7 +8,7 @@
 
   main{
     background-color: #121212;
-    color: #fff;
+    color: #b3b3b3;
     padding: 2rem;
     @media(min-width: 576px){
         height: 90%;
@@ -18,7 +18,7 @@
     }
   }
 
-  .row{
+  .app-row{
     @media(min-width: 576px){
       height: 100vh;
     }
