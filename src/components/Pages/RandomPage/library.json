@@ -1,0 +1,22 @@
+{
+    "artisteOne":{
+        "name": "Will Stetson",
+        "image":"default"
+    },
+    "artistTwo":{
+        "name": "Trickle",
+        "image":"default"
+    },
+    "artistThree":{
+        "name": "NateWantsToBattle",
+        "image":"default"
+    },
+    "artistFour":{
+        "name": "insaneintherainmusic",
+        "image":"default"
+    },
+    "artistFive":{
+        "name": "Toby Fox",
+        "image":"default"
+    },
+}
