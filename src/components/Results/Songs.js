@@ -1,11 +1,11 @@
 import React from 'react';
 import { HiOutlineClock } from 'react-icons/hi';
-import './Songs.scss';
+import './Results.scss';
 
 
 const Songs = props => {
     return(
-        <div className="table-container">
+        <div className="table-container songs-container">
             <div className="row table-header">
                 <div className="col-sm-1">
                     <p>#</p>

@@ -37,6 +37,9 @@
                 border-radius: 50%;
                 position: relative;
                 box-shadow: 0 0 20px black;
+                &.album-art{
+                    border-radius:5px;
+                }
             }
             .play-circle{
                 background-color: #1ed760;
@@ -63,9 +66,59 @@
             .card-text{
                 font-size: 0.8rem;
             }
+            .album-title{
+                white-space: nowrap;
+                overflow: hidden;
+            }
         }
     }
+}
 
-
-
+.songs-container{
+    font-weight: 500;
+    .table-row{
+        border: 1px solid transparent;
+        border-radius: 5px;
+        &:hover, &:active{
+            background-color: rgb(42, 42, 42);
+            .cell:not(:last-child){
+                color:#fff;
+            }
+        }
+        &:active{
+            background-color: rgb(90, 90, 90);
+            .cell:not(:last-child){
+                color:#fff;
+            }
+        }
+    }
+    .cell{
+        display: flex;
+        align-items: center;
+    }
+    .album-cell{
+        span{
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    img{
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+    .title-cell > div{
+        display: flex;
+        flex-direction: column;
+        margin-left: 1rem;
+        .title-span{
+            color:#fff;
+            font-weight: 600;
+        }
+        .artist-span{
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaPlay } from 'react-icons/fa';
-import './Artist.scss';
+import './Results.scss';
 
 const Artist = props => {
     return(

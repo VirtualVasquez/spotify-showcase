@@ -1,8 +1,8 @@
 import React from 'react';
 import './SearchPage.scss';
-import Songs from '../../Results/Songs/Songs';
-import Artist from '../../Results/Artist/Artist';
-import Album from '../../Results/Album/Album';
+import Songs from '../../Results/Songs';
+import Artist from '../../Results/Artist';
+import Album from '../../Results/Album';
 
 
 
@@ -13,6 +13,7 @@ const SearchPage = props => {
 
             </div>
             <div className="result-row row">
+                <Songs />
                 <Artist />
                 <Album />
             </div>
