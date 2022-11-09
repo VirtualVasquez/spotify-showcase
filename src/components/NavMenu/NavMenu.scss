@@ -20,9 +20,13 @@ nav{
         display: flex;
         color: #b3b3b3;
         text-decoration: none;
+        &.active{
+            color:#fff;
+        }
         &:hover{
             color: #fff;
         }
+
             @media(min-width: 576px){
                 align-items: center;
                 margin-left: 1rem;
