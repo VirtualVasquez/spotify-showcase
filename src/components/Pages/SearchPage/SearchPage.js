@@ -9,9 +9,13 @@ import Album from '../../Results/Album/Album';
 const SearchPage = props => {
     return(
         <div className="container" id="search-page">
-            <Songs />
-            <Artist />
-            <Album />
+            <div className="search-row row">
+
+            </div>
+            <div className="result-row row">
+                <Artist />
+                <Album />
+            </div>
         </div>        
     )
 }
