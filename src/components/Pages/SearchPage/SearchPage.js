@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './SearchPage.scss';
 import Songs from '../../Results/Songs';
 import Artist from '../../Results/Artist';
@@ -8,16 +8,25 @@ import Search from '../../Search/Search';
 
 
 
-const SearchPage = props => {
-    return(
-        <div className="container" id="search-page">
-            <div className="search-row row">
-                <Search />
-            </div>
-            <div className="result-row row">
-            </div>
-        </div>        
-    )
+class SearchPage extends Component {
+    constructor(props){
+        super(props);
+        this.state ={}
+        //this.function = this.function.bind(this);
+    }
+    
+    render(){
+        return(
+            <div className="container" id="search-page">
+                <div className="search-row row">
+                    <Search />
+                </div>
+                <div className="result-row row">
+                </div>
+            </div>        
+        )
+    }
+
 }
 
 export default SearchPage;
