@@ -14,14 +14,8 @@ import RandomPage from './components/Pages/RandomPage/RandomPage';
 
 
 
-class App extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {}
-    //this.function = this.function.bind(this);
-  }
+function App(){
 
-  render(){
     return(
       <Router>
         <div className="App">
@@ -40,7 +34,6 @@ class App extends React.Component{
       </Router>
 
     )
-  }
 }
 
 export default App;
