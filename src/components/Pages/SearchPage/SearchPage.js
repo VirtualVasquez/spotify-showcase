@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './SearchPage.scss';
+import axios from 'axios';
 import Songs from '../../Results/Songs';
 import Artist from '../../Results/Artist';
 import Album from '../../Results/Album';
@@ -14,7 +15,7 @@ class SearchPage extends Component {
         this.state ={}
         //this.function = this.function.bind(this);
     }
-    
+
     render(){
         return(
             <div className="container" id="search-page">
