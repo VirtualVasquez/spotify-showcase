@@ -18,13 +18,27 @@ class SearchPage extends Component {
         this.state ={
             searchInput: '',
             searchResults: [],
-            radioValue: '',
+            radioValue: 'track',
         }
         //this.function = this.function.bind(this);
+        this.renderSearchResults = this.renderSearchResults.bind(this);
+        this.handleSearch = this.handleSearch.bind(this);
+        this.handleUserInput = this.handleUserInput.bind(this);
     }
 
-    handleRadioInput(event){
-        this.setState({ radioValue: event.target.value});
+
+
+
+
+    handleUserInput = e => {
+        this.setState({
+            searchInput: e.target.value
+        })
+    }
+    handleRadioInput = e => {
+        this.setState({ 
+            radioValue: e.target.value
+        });
     }
 
     handleSearch = async (event) => {
@@ -52,22 +66,57 @@ class SearchPage extends Component {
         })
     }
 
-    // renderSearchResults = this.state.searchResults.map(result =>{
-    //     if (this.state.searchResults === 'artist') {
+    renderSearchResults = () => {
+        if(this.state.searchResults.length > 0){
+            // if (this.state.searchResults === 'artist') {
+            //     return(
+            //         this.state.searchResults.map(result =>{
+            //             <Artist 
+            //               key={result.id}
+            //               artist={result}
+            //               artistPic={result}
+            //             //   radioValue={this.state.radioValue}
+            //             />
+            //         })
+            //     )
+            // } 
+            // else if (this.state.radioValue === ' album') {
+            //     return(
+            //         this.state.searchResults.map(result =>{
+            //             <Album 
+            //               key={result.id}
+            //               artist={result}
+            //               albumPic={result}
+            //             //   radioValue={this.state.radioValue}
+            //             />
+            //         })
+            //     )
+    
+            // } 
+            // else if (this.state.radioValue === 'track') {
+            if (this.state.radioValue === 'track') {
+                return(
+                    <Songs
+                      tracks={this.state.searchResults}
+                      radioValue={this.state.radioValue}
+                    />
+                )
+                      
+            }
+        }
+    }
 
-    //     } else if (this.state.radioValue === ' album') {
-
-    //     } else if (this.state.radioValue === 'track') {
-      
-    //     }
-    //   }
-    // )
      
     render(){
         return(
             <div className="container" id="search-page">
                 <div className="search-row row">
-                    <Search />
+                    <Search 
+                      handleUserInput={this.handleUserInput}
+                      handleRadioInput={this.handleRadioInput}
+                      handleSearch={this.handleSearch}
+                    />
+                    {this.renderSearchResults}
                 </div>
                 <div className="result-row row">
                 </div>
