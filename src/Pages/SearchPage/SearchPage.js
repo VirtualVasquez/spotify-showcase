@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import './SearchPage.scss';
-import Songs from '../../Results/Songs';
-import Artist from '../../Results/Artist';
-import Album from '../../Results/Album';
-import Search from '../../Search/Search';
+import Songs from '../../components/Results/Songs';
+import Artist from '../../components/Results/Artist';
+import Album from '../../components/Results/Album';
+import Search from '../../components/Search/Search';
 
-import authToken from '../../../controller/controller';
+import authToken from '../../controller/controller';
 import axios from 'axios';
 import { Dropdown } from 'bootstrap';
 
@@ -52,16 +52,16 @@ class SearchPage extends Component {
         })
     }
 
-    renderSearchResults = this.state.searchResults.map(result =>{
-        if (this.state.searchResults === 'artist') {
+    // renderSearchResults = this.state.searchResults.map(result =>{
+    //     if (this.state.searchResults === 'artist') {
 
-        } else if (this.state.radioValue === ' album') {
+    //     } else if (this.state.radioValue === ' album') {
 
-        } else if (this.state.radioValue === 'track') {
+    //     } else if (this.state.radioValue === 'track') {
       
-        }
-      }
-    )
+    //     }
+    //   }
+    // )
      
     render(){
         return(
