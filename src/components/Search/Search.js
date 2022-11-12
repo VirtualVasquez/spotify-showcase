@@ -14,18 +14,18 @@ const Search = props => {
                 </div>
             </div>
             <div className="row" id="radio-buttons">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="artistRadio" value="Artists" />
+                <div class="form-check ">
+                    <input class="form-check-input" type="radio" name="artists" id="artistRadio" value="Artists" />
                     <label class="form-check-label" for="artistRadio">Artists</label>
                 </div>
 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="songRadio" value="Songs" />
+                <div class="form-check ">
+                    <input class="form-check-input" type="radio" name="songs" id="songRadio" value="Songs" />
                     <label class="form-check-label" for="songRadio">Songs</label>
                 </div>
                 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="albumRadio" value="Albums" />
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="album" id="albumRadio" value="Albums" />
                     <label class="form-check-label" for="albumRadio">Albums</label>
                 </div>
             </div>
