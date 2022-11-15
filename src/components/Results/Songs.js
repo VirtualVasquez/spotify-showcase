@@ -7,6 +7,18 @@ import './Results.scss';
 // props.radioValue={this.state.radioValue}
 
 const Songs = props => {
+
+    function getMinutesAndSeconds(milliseconds){
+        let minutes = Math.floor(milliseconds/60000);
+        let seconds = Math.floor((milliseconds % 60000)/1000);
+
+        if(seconds < 10){
+            seconds = "0" + seconds;
+        }
+
+        return minutes + ':' + seconds;
+    }
+
     return(
         <div className="table-container songs-container">
             <div className="row table-header">
@@ -23,25 +35,27 @@ const Songs = props => {
                     <HiOutlineClock />
                 </div>
             </div>
-            {Array.isArray(props.tracks) ? props.tracks.map( result => {
+            {Array.isArray(props.tracks) ? props.tracks.map((track, index) => {
                     return(
-                        <div className="row table-row">
+                        <div className="row table-row" key={index}>
+                        <a className="link-wrapper" href={track.external_urls.spotify}>
                         <div className="col-sm-1 cell index-cell">
-                            1
+                            {index + 1}
                         </div>
                         <div className="col-sm-6 cell title-cell">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Mjinvincible.jpg/220px-Mjinvincible.jpg" alt="invincible" />
+                            <img src={track.album.images[1].url} alt="invincible" />
                             <div>
-                                <span class="title-span">You Rock My World</span>
-                                <span class="artist-span">Michael Jackson</span>
+                                <span className="title-span">{track.name}</span>
+                                <span className="artist-span">{track.artists[0].name}</span>
                             </div>
                         </div>
                         <div className="col-sm-4 cell album-cell">
-                            <span>Invincible</span>
+                            <span>{track.album.name}</span>
                         </div>
                         <div className="col-sm-1 cell duration-cell">
-                            5:37
+                            {getMinutesAndSeconds(track.duration_ms)}
                         </div>
+                        </a>
                     </div>
                     )
                 }) : null}

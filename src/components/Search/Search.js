@@ -21,17 +21,17 @@ const Search = props => {
             </div>
             <div className="row" id="radio-buttons">
                 <div className="form-check ">
-                    <input className="form-check-input" type="radio" name="artists" id="artistRadio" value="Artists" />
+                    <input className="form-check-input" type="radio" name="artists" id="artistRadio" value="artist" />
                     <label className="form-check-label" htmlFor="artistRadio">Artists</label>
                 </div>
 
                 <div className="form-check ">
-                    <input className="form-check-input" type="radio" name="songs" id="songRadio" value="Songs" />
+                    <input className="form-check-input" type="radio" name="track" id="songRadio" value="track" />
                     <label className="form-check-label" htmlFor="songRadio">Songs</label>
                 </div>
                 
                 <div className="form-check">
-                    <input className="form-check-input" type="radio" name="album" id="albumRadio" value="Albums" />
+                    <input className="form-check-input" type="radio" name="album" id="albumRadio" value="album" />
                     <label className="form-check-label" htmlFor="albumRadio">Albums</label>
                 </div>
             </div>
