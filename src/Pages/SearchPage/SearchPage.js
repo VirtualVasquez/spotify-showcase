@@ -16,10 +16,10 @@ class SearchPage extends Component {
         this.state ={
             searchInput: '',
             searchResults: [],
-            radioValue: 'track',
+            radioValue: 'artist',
         }
         //this.function = this.function.bind(this);
-        this.renderSearchResults = this.renderSearchResults.bind(this);
+        this.renderSechResults = this.renderSearchResults.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         // this.handleUserInput = this.handleUserInput.bind(this);
     }
@@ -41,23 +41,20 @@ class SearchPage extends Component {
 
     handleSearch = async (event) => {
         try{
-            const response = await axios.get('https://api.spotify.com/v1/search?q=michael%20jackson&type=track&limit=5')
+            const response = await axios.get('https://api.spotify.com/v1/search?q=michael%20jackson&type=artist&limit=5')
 
-            // if(this.state.radioValue === 'artist'){
-            //     this.setState({
-            //         searchResults: response.data.artists.items
-            //     })
-            // } else if (this.state.radioValue === ' album'){
-            //     this.setState({
-            //         searchResults: response.data.albums.items
-            //     })
-            // } else if (this.state.radioValue === 'track'){
-            if (this.state.radioValue === 'track'){
-                // console.log(response.data.tracks.items);           
+            if(this.state.radioValue === 'artist'){
+                this.setState({
+                    searchResults: response.data.artists.items
+                })
+            } else if (this.state.radioValue === ' album'){
+                this.setState({
+                    searchResults: response.data.albums.items
+                })
+            } else if (this.state.radioValue === 'track'){
                 this.setState({
                     searchResults: response.data.tracks.items
                 })
-                // console.log(this.state.searchResults);           
             }
         } catch (err){
             console.log(err)
@@ -69,34 +66,40 @@ class SearchPage extends Component {
 
     renderSearchResults() {
         if(this.state.searchResults.length > 0){
-            // if (this.state.searchResults === 'artist') {
-            //     return(
-            //         this.state.searchResults.map(result =>{
-            //             <Artist 
-            //               key={result.id}
-            //               artist={result}
-            //               artistPic={result}
-            //             //   radioValue={this.state.radioValue}
-            //             />
-            //         })
-            //     )
-            // } 
-            // else if (this.state.radioValue === ' album') {
-            //     return(
-            //         this.state.searchResults.map(result =>{
-            //             <Album 
-            //               key={result.id}
-            //               artist={result}
-            //               albumPic={result}
-            //             //   radioValue={this.state.radioValue}
-            //             />
-            //         })
-            //     )
+
+            if (this.state.radioValue === 'artist') {
+
+                return(
+                    this.state.searchResults.map((result, index) =>{
+                        console.log(result.images[0]?.url)
+                        return (
+                        <Artist 
+                          index={index}
+                          id={result.id}
+                          artist={result.name}
+                          artistPic={result.images[0]?.url}
+                          artistPage={result.external_urls.spotify}
+                        />
+                        )
+
+                    })
+                )
+            } 
+            else if (this.state.radioValue === ' album') {
+                return(
+                    this.state.searchResults.map(result =>{
+                        return(
+                          <Album 
+                            key={result.id}
+                            artist={result}
+                            albumPic={result}
+                          />
+                        )
+                    })
+                )
     
-            // } 
-            // else if (this.state.radioValue === 'track') {
-            if (this.state.radioValue === 'track') {
-                console.log("rendering tracks");
+            } 
+            else if (this.state.radioValue === 'track') {
                 return(
                     <Songs
                       tracks={this.state.searchResults}

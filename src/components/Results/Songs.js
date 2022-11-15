@@ -28,7 +28,7 @@ const Songs = props => {
                 <div className="col-sm-6">
                     TITLE
                 </div>
-                <div className="col-sm-4">
+                <div className="col-sm-4"> 
                     ALBUM
                 </div>
                 <div className="col-sm-1">
