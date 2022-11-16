@@ -5,10 +5,10 @@ import './Results.scss';
 const Artist = props => {
     return(
         <div className="col-sm-2" id="result-card" key={props.index}>
-                <div className="card">
-                    <a href={props.artistPage}>
+                <div className="card" id={props.id} onClick={props.getSong ? (e) => props.getSong(e) : null}>
+                    <a href={props.artistPage ? props.artistPage : null} target="_blank" rel="noreferrer">
                     <div className="card-image">
-                        <img className="card-img-top" src={props.artistPic !== undefined ? props.artistPic :  "https://i.scdn.co/image/ab6761610000e5eb1020c22e0ce742eca7166e65"} alt="Card cap" />
+                        <img className="card-img-top" src={props.artistPic !== undefined ? props.artistPic :  "https://i.scdn.co/image/ab6761610000e5eb1020c22e0ce742eca7166e65"} alt={props.artist} />
                         <span className="play-circle">
                             <FaPlay />
                         </span>

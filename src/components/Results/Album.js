@@ -5,7 +5,7 @@ import './Results.scss';
 const Album = props => {
     return(
             <div className="col-sm-2"  id="result-card">
-                <a href={props.albumPage}>
+                <a href={props.albumPage} target="_blank" rel="noreferrer">
                 <div className="card">
                     <div className="card-image">
                         <img className="card-img-top album-art" src={props.albumPic !== undefined ? props.albumPic : "https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2/image-size/original?v=mpbl-1&px=-1"} alt="Card cap" />

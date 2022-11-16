@@ -110,7 +110,6 @@ class SearchPage extends Component {
                 return(
                     <Songs
                       tracks={this.state.searchResults}
-                      radioValue={this.state.radioValue}
                     />
                 )
                       

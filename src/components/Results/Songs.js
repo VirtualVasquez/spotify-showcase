@@ -3,9 +3,6 @@ import { HiOutlineClock } from 'react-icons/hi';
 import './Results.scss';
 
 
-// props.tracks={this.state.searchResults}
-// props.radioValue={this.state.radioValue}
-
 const Songs = props => {
 
     function getMinutesAndSeconds(milliseconds){
@@ -38,12 +35,12 @@ const Songs = props => {
             {Array.isArray(props.tracks) ? props.tracks.map((track, index) => {
                     return(
                         <div className="row table-row" key={index}>
-                        <a className="link-wrapper" href={track.external_urls.spotify}>
+                        <a className="link-wrapper" href={track.external_urls.spotify} target="_blank" rel="noreferrer">
                         <div className="col-sm-1 cell index-cell">
                             {index + 1}
                         </div>
                         <div className="col-sm-6 cell title-cell">
-                            <img src={track.album.images[1].url} alt="invincible" />
+                            <img src={track.album.images[1].url} alt={track.album.name} />
                             <div>
                                 <span className="title-span">{track.name}</span>
                                 <span className="artist-span">{track.artists[0].name}</span>
