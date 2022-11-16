@@ -18,31 +18,33 @@ class SearchPage extends Component {
             searchResults: [],
             radioValue: '',
         }
-        //this.function = this.function.bind(this);
-        this.renderSechResults = this.renderSearchResults.bind(this);
+        this.renderSearchResults = this.renderSearchResults.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.handleRadioInput = this.handleRadioInput.bind(this);
-        // this.handleUserInput = this.handleUserInput.bind(this);
+        this.handleUserInput = this.handleUserInput.bind(this);
     }
 
     componentDidMount(){
         authToken.getAuthToken();
     }
 
-    // handleUserInput = e => {
-    //     this.setState({
-    //         searchInput: e.target.value
-    //     })
-    // }
+    handleUserInput = e => {
+        this.setState({
+            searchInput: e.target.value
+        })
+        console.log(this.state.searchInput);
+    }
     handleRadioInput = e => {
-        this.setState({ 
+        this.setState({
+            searchResults: [], 
             radioValue: e.target.value
         });
     }
 
     handleSearch = async (event) => {
+        console.log(this.state.searchInput);
         try{
-            const response = await axios.get('https://api.spotify.com/v1/search?q=michael%20jackson&type=album&limit=5')
+            const response = await axios.get(`https://api.spotify.com/v1/search?q=${this.state.searchInput}&type=${this.state.radioValue}&limit=5`)
 
             if(this.state.radioValue === 'artist'){
                 this.setState({
@@ -60,9 +62,9 @@ class SearchPage extends Component {
         } catch (err){
             console.log(err)
         }
-        // this.setState({
-        //     searchInput: ''
-        // })
+        this.setState({
+            searchInput: ''
+        })
     }
 
     renderSearchResults() {
@@ -121,8 +123,9 @@ class SearchPage extends Component {
         return(
             <div className="container" id="search-page">
                 <div className="search-row row">
-                    <Search 
-                    //   handleUserInput={this.handleUserInput}
+                    <Search
+                      value={this.state.searchInput} 
+                      handleUserInput={this.handleUserInput}
                       handleRadioInput={this.handleRadioInput}
                       handleSearch={this.handleSearch}
                     />

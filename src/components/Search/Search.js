@@ -6,7 +6,13 @@ const Search = props => {
         <div className="container" id="search-form">
             <div className="row">
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" placeholder="What do you want to listen to?" />
+                    <input 
+                    type="text" 
+                    className="form-control" 
+                    placeholder="What do you want to listen to?" 
+                    onChange={props.handleUserInput}
+                    value={props.value}
+                    />
 
                     <div className="input-group-append">
                         <button 
