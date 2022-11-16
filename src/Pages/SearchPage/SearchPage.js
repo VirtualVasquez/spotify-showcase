@@ -16,11 +16,12 @@ class SearchPage extends Component {
         this.state ={
             searchInput: '',
             searchResults: [],
-            radioValue: 'album',
+            radioValue: '',
         }
         //this.function = this.function.bind(this);
         this.renderSechResults = this.renderSearchResults.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.handleRadioInput = this.handleRadioInput.bind(this);
         // this.handleUserInput = this.handleUserInput.bind(this);
     }
 
@@ -33,11 +34,11 @@ class SearchPage extends Component {
     //         searchInput: e.target.value
     //     })
     // }
-    // handleRadioInput = e => {
-    //     this.setState({ 
-    //         radioValue: e.target.value
-    //     });
-    // }
+    handleRadioInput = e => {
+        this.setState({ 
+            radioValue: e.target.value
+        });
+    }
 
     handleSearch = async (event) => {
         try{
@@ -117,15 +118,12 @@ class SearchPage extends Component {
 
      
     render(){
-        console.log("I am here");
-        console.log(this.state.searchResults);
-        console.log("I am gone");
         return(
             <div className="container" id="search-page">
                 <div className="search-row row">
                     <Search 
                     //   handleUserInput={this.handleUserInput}
-                    //   handleRadioInput={this.handleRadioInput}
+                      handleRadioInput={this.handleRadioInput}
                       handleSearch={this.handleSearch}
                     />
                 </div>
