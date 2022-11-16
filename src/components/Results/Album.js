@@ -5,22 +5,24 @@ import './Results.scss';
 const Album = props => {
     return(
             <div className="col-sm-2"  id="result-card">
+                <a href={props.albumPage}>
                 <div className="card">
                     <div className="card-image">
-                        <img className="card-img-top album-art" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Mjinvincible.jpg/220px-Mjinvincible.jpg" alt="Card image cap" />
+                        <img className="card-img-top album-art" src={props.albumPic !== undefined ? props.albumPic : "https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2/image-size/original?v=mpbl-1&px=-1"} alt="Card cap" />
                         <span className="play-circle">
                             <FaPlay />
                         </span>
                     </div>
                     <div className="card-body">
-                        <p className="card-title album-title">Invincible</p>
+                        <p className="card-title album-title">{props.albumName}</p>
                         <p className="card-text">
-                            <span className="album-year">2001 </span>
+                            <span className="album-year">{props.albumYear} </span>
                             <span>&bull;</span>
-                            <span className="album-artist"> Michael jackson</span>
+                            <span className="album-artist"> {props.artist}</span>
                         </p>
                     </div>
                 </div>
+                </a>
             </div>        
     )
 }

@@ -16,7 +16,7 @@ class SearchPage extends Component {
         this.state ={
             searchInput: '',
             searchResults: [],
-            radioValue: 'artist',
+            radioValue: 'album',
         }
         //this.function = this.function.bind(this);
         this.renderSechResults = this.renderSearchResults.bind(this);
@@ -41,13 +41,13 @@ class SearchPage extends Component {
 
     handleSearch = async (event) => {
         try{
-            const response = await axios.get('https://api.spotify.com/v1/search?q=michael%20jackson&type=artist&limit=5')
+            const response = await axios.get('https://api.spotify.com/v1/search?q=michael%20jackson&type=album&limit=5')
 
             if(this.state.radioValue === 'artist'){
                 this.setState({
                     searchResults: response.data.artists.items
                 })
-            } else if (this.state.radioValue === ' album'){
+            } else if (this.state.radioValue === 'album'){
                 this.setState({
                     searchResults: response.data.albums.items
                 })
@@ -85,14 +85,18 @@ class SearchPage extends Component {
                     })
                 )
             } 
-            else if (this.state.radioValue === ' album') {
+            else if (this.state.radioValue === 'album') {
                 return(
-                    this.state.searchResults.map(result =>{
+                    this.state.searchResults.map((result, index) =>{
                         return(
                           <Album 
-                            key={result.id}
-                            artist={result}
-                            albumPic={result}
+                            index={index}
+                            id={result.id}
+                            artist={result.artists[0].name}
+                            albumName={result.name}
+                            albumPic={result.images[1]?.url}
+                            albumPage={result.external_urls.spotify}
+                            albumYear={result.release_date.substr(0,4)}
                           />
                         )
                     })
