@@ -24,6 +24,7 @@ function App(){
               <main className="col-sm-10 col-xs-12">
                 <Routes>
                   <Route exact path="/" element={<HomePage />} />
+                  <Route exact path="/spotify-showcase" element={<HomePage />} />
                   <Route exact path="/search" element={<SearchPage/>}/>
                   <Route exact path="/library" element={<RandomPage/>}/>
                 </Routes>
