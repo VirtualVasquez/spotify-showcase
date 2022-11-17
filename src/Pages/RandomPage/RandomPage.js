@@ -14,7 +14,6 @@ class RandomPage extends Component {
         this.state ={
             randomSong: []
         }
-        // this.function = this.function.bind(this);
         this.renderFavArtists = this.renderFavArtists(this);
         this.getRandomSong = this.getRandomSong.bind(this);
         this.renderRandomSong = this.renderRandomSong.bind(this);

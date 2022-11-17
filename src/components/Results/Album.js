@@ -4,7 +4,7 @@ import './Results.scss';
 
 const Album = props => {
     return(
-            <div className="col-sm-2"  id="result-card">
+            <div className="col-sm-2 col-6"  id="result-card">
                 <a href={props.albumPage} target="_blank" rel="noreferrer">
                 <div className="card">
                     <div className="card-image">

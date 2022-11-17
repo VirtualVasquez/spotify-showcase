@@ -4,7 +4,7 @@ import './Results.scss';
 
 const Artist = props => {
     return(
-        <div className="col-sm-2" id="result-card" key={props.index}>
+        <div className="col-sm-2 col-6" id="result-card" key={props.index}>
                 <div className="card" id={props.id} onClick={props.getSong ? (e) => props.getSong(e) : null}>
                     <a href={props.artistPage ? props.artistPage : null} target="_blank" rel="noreferrer">
                     <div className="card-image">

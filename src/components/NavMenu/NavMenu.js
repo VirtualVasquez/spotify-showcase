@@ -11,13 +11,13 @@ const NavMenu = props => {
     return(
         <nav className="col-sm-2 col-xs-12">
             <Link to="/">
-                <span className="a"><BiHomeAlt /><span> Home</span></span>
+                <span className="route"><BiHomeAlt /><span> Home</span></span>
             </Link>
             <Link to="/search">
-                <span className="a"><BiSearch /><span> Search</span></span>
+                <span className="route"><BiSearch /><span> Search</span></span>
             </Link>
             <Link to="/library">
-                <span className="a"><VscLibrary /><span> Library</span></span>
+                <span className="route"><VscLibrary /><span> Library</span></span>
             </Link>
         </nav>
     )

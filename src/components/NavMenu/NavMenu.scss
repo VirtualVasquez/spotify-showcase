@@ -15,11 +15,17 @@ nav{
     @media(min-width: 576px){
         padding-top:2rem;
     }
+    a{
+        text-decoration: none;
+        &:active{
+            color:#fff;
+        }
+    }
 
-    span.a{
+    span.route{
         display: flex;
         color: #b3b3b3;
-        text-decoration: none;
+    
         &.active{
             color:#fff;
         }

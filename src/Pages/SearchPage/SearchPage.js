@@ -42,7 +42,12 @@ class SearchPage extends Component {
     }
 
     handleSearch = async (event) => {
-        console.log(this.state.searchInput);
+        if(this.state.searchInput === ''){
+            return alert("You haven't written anything in the search input");
+        }
+        if(this.state.radioValue === ''){
+            return alert("Make sure to select what type of query you want to make: Artists, Songs, or Albums")
+        }
         try{
             const response = await axios.get(`https://api.spotify.com/v1/search?q=${this.state.searchInput}&type=${this.state.radioValue}&limit=5`)
 

@@ -18,6 +18,13 @@
         }
 
     }
+    .row{
+        @media(max-width: 576px){
+            display:flex;
+            justify-content: center;
+        }
+    }
+
 }
 
 div.form-check{
