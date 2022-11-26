@@ -5,7 +5,6 @@ import Artist from '../../components/Results/Artist';
 import Songs from '../../components/Results/Songs';
 
 import {FAV_ARTISTS} from '../../favArtists';
-import authToken from '../../controller/controller';
 
 
 class RandomPage extends Component {
@@ -17,9 +16,6 @@ class RandomPage extends Component {
         this.renderFavArtists = this.renderFavArtists(this);
         this.getRandomSong = this.getRandomSong.bind(this);
         this.renderRandomSong = this.renderRandomSong.bind(this);
-    }
-    componentDidMount(){
-        authToken.getAuthToken();
     }
 
     renderFavArtists(){
@@ -46,17 +42,17 @@ class RandomPage extends Component {
             })
         } catch (err){
             console.log(err);
+            alert(
+                `There was an error in the application: ${err.response.data.error.message}`
+            )
         }
     }
 
     renderRandomSong(){
         let RNG = Math.floor(Math.random() * this.state.randomSong.length)
        
-        return(
-            <Songs 
-                tracks={[this.state.randomSong[RNG]]}
-            />
-        )
+        return this.state.randomSong.elngth > 0 ? (<Songs tracks={[this.state.randomSong[RNG]]} /> ) : null
+        
     }
 
     
@@ -70,7 +66,7 @@ class RandomPage extends Component {
                     {this.renderFavArtists}
                 </div>
                 <div className="random-song-row row">
-                    {this.state.randomSong.length > 0 ? this.renderRandomSong() : null}
+                    {this.renderRandomSong()}
                 </div>
             </div>
         )  

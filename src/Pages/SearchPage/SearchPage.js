@@ -5,7 +5,6 @@ import Artist from '../../components/Results/Artist';
 import Album from '../../components/Results/Album';
 import Search from '../../components/Search/Search';
 
-import authToken from '../../controller/controller';
 import axios from 'axios';
 
 
@@ -24,10 +23,6 @@ class SearchPage extends Component {
         this.handleUserInput = this.handleUserInput.bind(this);
     }
 
-    componentDidMount(){
-        authToken.getAuthToken();
-    }
-
     handleUserInput = e => {
         this.setState({
             searchInput: e.target.value
@@ -42,6 +37,9 @@ class SearchPage extends Component {
     }
 
     handleSearch = async (event) => {
+
+        event.preventDefault(); 
+        
         if(this.state.searchInput === ''){
             return alert("You haven't written anything in the search input");
         }
@@ -66,6 +64,9 @@ class SearchPage extends Component {
             }
         } catch (err){
             console.log(err)
+            alert(
+                `There was an error in the application: ${err.response.data.error.message}`
+            )
         }
         this.setState({
             searchInput: ''
@@ -73,53 +74,54 @@ class SearchPage extends Component {
     }
 
     renderSearchResults() {
-        if(this.state.searchResults.length > 0){
-
-            if (this.state.radioValue === 'artist') {
-
-                return(
-                    this.state.searchResults.map((result, index) =>{
-                        console.log(result.images[0]?.url)
-                        return (
-                        <Artist 
-                          index={index}
-                          id={result.id}
-                          artist={result.name}
-                          artistPic={result.images[0]?.url}
-                          artistPage={result.external_urls.spotify}
-                        />
-                        )
-
-                    })
-                )
-            } 
-            else if (this.state.radioValue === 'album') {
-                return(
-                    this.state.searchResults.map((result, index) =>{
-                        return(
-                          <Album 
-                            index={index}
-                            id={result.id}
-                            artist={result.artists[0].name}
-                            albumName={result.name}
-                            albumPic={result.images[1]?.url}
-                            albumPage={result.external_urls.spotify}
-                            albumYear={result.release_date.substr(0,4)}
-                          />
-                        )
-                    })
-                )
-    
-            } 
-            else if (this.state.radioValue === 'track') {
-                return(
-                    <Songs
-                      tracks={this.state.searchResults}
-                    />
-                )
-                      
-            }
+        if(this.state.searchResults.length === 0){
+            return;
         }
+
+        if (this.state.radioValue === 'artist') {
+
+            return(
+                this.state.searchResults.map((result, index) =>{
+                    console.log(result.images[0]?.url)
+                    return (
+                    <Artist 
+                      index={index}
+                      id={result.id}
+                      artist={result.name}
+                      artistPic={result.images[0]?.url}
+                      artistPage={result.external_urls.spotify}
+                    />
+                    )
+
+                })
+            )
+        } 
+        
+        if (this.state.radioValue === 'album') {
+            return(
+                this.state.searchResults.map((result, index) =>{
+                    return(
+                      <Album 
+                        key={result.id}
+                        result={result}
+                      />
+                    )
+                })
+            )
+
+        } 
+        
+        if (this.state.radioValue === 'track') {
+            return(
+                <Songs
+                  tracks={this.state.searchResults}
+                />
+            )
+                  
+        }
+
+        throw new Error('radio value is not valid');
+
     }
 
      

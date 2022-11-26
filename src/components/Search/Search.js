@@ -1,24 +1,23 @@
 import React from 'react';
 import './Search.scss';
 
-const Search = props => {
+const Search = ({ handleSearch, handleRadioInput, handleUserInput, value}) => {
     return(
-        <div className="container" id="search-form">
+        <form className="container" id="search-form" onSubmit={handleSearch}>
             <div className="row">
                 <div className="input-group mb-3">
                     <input 
                     type="text" 
                     className="form-control" 
                     placeholder="What do you want to listen to?" 
-                    onChange={props.handleUserInput}
-                    value={props.value}
+                    onChange={handleUserInput}
+                    value={value}
                     />
 
                     <div className="input-group-append">
                         <button 
                           className="btn btn-outline-secondary" 
-                          type="button"
-                          onClick={props.handleSearch}
+                          type="submit"
                         >
                           Search
                         </button>
@@ -33,7 +32,7 @@ const Search = props => {
                     name="inlineRadioOptions" 
                     id="artistRadio" 
                     value="artist"
-                    onChange={props.handleRadioInput} 
+                    onChange={handleRadioInput} 
                     />
                     <label className="form-check-label" htmlFor="artistRadio">Artists</label>
                 </div>
@@ -45,7 +44,7 @@ const Search = props => {
                     name="inlineRadioOptions" 
                     id="songRadio" 
                     value="track" 
-                    onChange={props.handleRadioInput} 
+                    onChange={handleRadioInput} 
                     />
                     <label className="form-check-label" htmlFor="songRadio">Songs</label>
                 </div>
@@ -57,14 +56,14 @@ const Search = props => {
                     name="inlineRadioOptions" 
                     id="albumRadio" 
                     value="album"
-                    onChange={props.handleRadioInput}  
+                    onChange={handleRadioInput}  
                     />
                     <label className="form-check-label" htmlFor="albumRadio">Albums</label>
                 </div>
             </div>
 
 
-        </div>
+        </form>
 
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,10 +11,16 @@ import HomePage from './Pages/HomePage/HomePage';
 import SearchPage from './Pages/SearchPage/SearchPage';
 import RandomPage from './Pages/RandomPage/RandomPage';
 
+import authToken from './controller/controller';
+
 
 
 
 function App(){
+
+  useEffect(() => {
+    authToken.getAuthToken();
+  }, [])
 
     return(
       <Router>

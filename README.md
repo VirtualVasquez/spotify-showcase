@@ -6,6 +6,13 @@ Find the music for everyone. Or find some of my personal favorites.
 
 See it in action [here](https://virtualvasquez.github.io/spotify-showcase/).
 
+## Installation Instructions
+
+1. Create .env file at root of project.
+2. Add REACT_APP_CLIENT_ID and REACT_APP_CLIENT_SECRET variables to the .env file from Spotify.
+3. Install dependencies by running `npm i`
+4. Run app by running `npm start`
+
 ## Summary
 
 The Spotify API provides an opportunity for developers to make requests to their expansive database of music. With Axios, requests are made to the API, and returned results are rendered in React.js, Bootstrap, and SCSS. The application is hosted on Github pages.
@@ -19,7 +26,8 @@ Not sure what to search? The app can generate a random track from one of five ar
 ## Road Map
 
 * I'd add an `onClick()` event to the nav menu to make highlight the individual nav items when on the respective page.
-* While the true Spotify desktop/web application doesn't account for mobile responsiveness, I'd like to improve this app's current implementation. 
+* While the true Spotify desktop/web application doesn't account for mobile responsiveness, I'd like to improve this app's current implementation.
+
 
 
 ## Technologies Used

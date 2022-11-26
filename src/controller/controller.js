@@ -27,6 +27,7 @@ const getAuthToken = () => {
       })
   } catch (err) {
     console.log(err)
+    alert(`There was an error in the application: ${err.response.data.error.message}`);
   }
 }
 
