@@ -1,0 +1,13 @@
+#branding{
+    background-color: #181818;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #282828;
+    @media(min-width: 576px){
+        height: 10%;
+    }
+    @media(max-width: 576px){
+        height: 10%;
+    }
+}
